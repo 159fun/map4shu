@@ -1,0 +1,321 @@
+<html>
+<head>
+    <meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        
+        body, html {
+            
+            width: 100%;
+            height: 93%;
+            margin: 0;
+            font-family: "微软雅黑";
+            background-color: #D2FFFF;
+
+        }
+        .neirong{
+          float: left;
+        }
+
+        #search{
+          line-height: 20px;
+          margin-bottom: 22px;
+          width: 100%;
+          height: 30px;
+          background-color: #FFEDDD;
+          text-align: center;
+          font-size: 10px;
+          
+        }
+
+        #allmap {
+          margin-left: 50px;
+            height: 100%;
+            width: 75%;
+
+        }
+        #zhuangtai{
+          margin-left: 2%;
+          width: 18%;
+          height: 100%;
+          background-color: #FFEDD7;
+          font-size: 17px;
+        }
+        #bottomline{
+          position: absolute;
+          text-align: center;
+          height: 20px;
+          width: 100%;
+          bottom: 0px;
+          background-color: #FAF0E6;
+          font-size: 5px;
+
+        }
+    </style>
+    <title>上海大学漫游</title>
+</head>
+<body>
+  <div id = "search"  class="neirong" >
+      <form action="search.html" method="get">
+          {% csrf_token %}
+          🕖：<input type="text" id="start" name="f" list="url_list">
+          <datalist id="url_list">
+              <option value="112">菜鸟驿站</option>
+              <option value="113">上大浴室</option>
+              <option value="114">益新食堂</option>
+              <option value="117">s楼</option>
+              <option value="122">山明食堂</option>
+              <option value="128">档案馆</option>
+              <option value="129">图书馆</option>
+              <option value="131">下沉式广场</option>
+              <option value="133">泮桥</option>
+              <option value="134">1号楼</option>
+              <option value="135">2号楼</option>
+              <option value="138">3号楼</option>
+              <option value="139">4号楼</option>
+              <option value="140">5号楼</option>
+              <option value="149">足球场</option>
+              <option value="151">南门篮球场</option>
+              <option value="154">西南门</option>
+              <option value="161">音乐广场</option>
+              <option value="167">GJ楼</option>
+              <option value="168">FJ楼</option>
+              <option value="170">EJ楼</option>
+              <option value="171">水秀食堂</option>
+              <option value="177">音乐学院</option>
+              <option value="179">游泳馆</option>
+              <option value="187">伟长楼</option>
+              <option value="189">风雨操场</option>
+              <option value="193">东区运动场</option>
+              <option value="194">体育学院</option>
+              <option value="199">东门</option>
+              <option value="201">J楼</option>
+              <option value="169">E楼</option>
+              <option value="207">F楼</option>
+              <option value="214">DJ楼</option>
+              <option value="215">D楼</option>
+              <option value="216">C楼</option>
+              <option value="217">CJ楼</option>
+              <option value="223">BJ楼</option>
+              <option value="224">B楼</option>
+              <option value="226">A楼</option>
+              <option value="227">AJ楼</option>
+              <option value="229">财务处</option>
+              <option value="230">行政楼</option>
+              <option value="252">艺术研究学院</option>
+              <option value="253">美术学院</option>
+              <option value="47">南区北门</option><option value="1">南区食堂</option>
+              <ption value="20">南区教育超市</ption>
+              <option value="21">新世纪大学村</option>
+              <option value="23">社区学院</option>
+              <option value="60">高温合金叶片技术研究中心</option>
+              <option value="61">环化学院</option>
+              <option value="62">生命科学实验中心</option>
+              <option value="74">翔英大楼</option>
+              <option value="78">计算机学院</option>
+              <option value="80">翔英学院</option>
+              <option value="90">土木工程系</option>
+              <option value="91">机自学院</option>
+              <option value="92">机器人重点实验室</option>
+              <option value="98">东区食堂</option>
+              <option value="103">钱伟长图书馆</option>
+              <option value="25">西门复印室</option>
+              <option value="26">西门</option>
+              <option value="27">东二门</option>
+              <option value="29">西门篮球场2</option>
+              <option value="31">网球场</option>
+              <option value="34">尔美食堂</option>
+              <option value="41">北门保卫处</option>
+              <option value="42">校医院</option>
+              <option value="43">校出版社</option>
+              <option value="38">乐乎新楼2号</option>
+              <option value="40">乐乎新楼1号</option>
+          </datalist>
+
+          🏁：<input type="text" id="end" name="g" list="url_list">
+          <datalist id="url_list">
+              <option value="112">菜鸟驿站</option>
+              <option value="113">上大浴室</option>
+              <option value="114">益新食堂</option>
+              <option value="117">s楼</option>
+              <option value="122">山明食堂</option>
+              <option value="128">档案馆</option>
+              <option value="129">图书馆</option>
+              <option value="131">下沉式广场</option>
+              <option value="133">泮桥</option>
+              <option value="134">1号楼</option>
+              <option value="135">2号楼</option>
+              <option value="138">3号楼</option>
+              <option value="139">4号楼</option>
+              <option value="140">5号楼</option>
+              <option value="149">足球场</option>
+              <option value="151">南门篮球场</option>
+              <option value="154">西南门</option>
+              <option value="161">音乐广场</option>
+              <option value="167">GJ楼</option>
+              <option value="168">FJ楼</option>
+              <option value="170">EJ楼</option>
+              <option value="171">水秀食堂</option>
+              <option value="177">音乐学院</option>
+              <option value="179">游泳馆</option>
+              <option value="187">伟长楼</option>
+              <option value="189">风雨操场</option>
+              <option value="193">东区运动场</option>
+              <option value="194">体育学院</option>
+              <option value="199">东门</option>
+              <option value="201">J楼</option>
+              <option value="169">E楼</option>
+              <option value="207">F楼</option>
+              <option value="214">DJ楼</option>
+              <option value="215">D楼</option>
+              <option value="216">C楼</option>
+              <option value="217">CJ楼</option>
+              <option value="223">BJ楼</option>
+              <option value="224">B楼</option>
+              <option value="226">A楼</option>
+              <option value="227">AJ楼</option>
+              <option value="229">财务处</option>
+              <option value="230">行政楼</option>
+              <option value="252">艺术研究学院</option>
+              <option value="253">美术学院</option>
+              <option value="47">南区北门</option><option value="1">南区食堂</option>
+              <ption value="20">南区教育超市</ption>
+              <option value="21">新世纪大学村</option>
+              <option value="23">社区学院</option>
+              <option value="60">高温合金叶片技术研究中心</option>
+              <option value="61">环化学院</option>
+              <option value="62">生命科学实验中心</option>
+              <option value="74">翔英大楼</option>
+              <option value="78">计算机学院</option>
+              <option value="80">翔英学院</option>
+              <option value="90">土木工程系</option>
+              <option value="91">机自学院</option>
+              <option value="92">机器人重点实验室</option>
+              <option value="98">东区食堂</option>
+              <option value="103">钱伟长图书馆</option>
+              <option value="25">西门复印室</option>
+              <option value="26">西门</option>
+              <option value="27">东二门</option>
+              <option value="29">西门篮球场2</option>
+              <option value="31">网球场</option>
+              <option value="34">尔美食堂</option>
+              <option value="41">北门保卫处</option>
+              <option value="42">校医院</option>
+              <option value="43">校出版社</option>
+              <option value="38">乐乎新楼2号</option>
+              <option value="40">乐乎新楼1号</option>
+          </datalist>
+          <select name="sel">
+              <option value="1">步行</option>
+              <option value="0">骑行</option>
+          </select>
+          <input type="submit" id='search-button' value="确定" >
+      </form>
+  </div>
+  <div id="allmap" class="neirong"></div>
+  <div id = "zhuangtai" class="neirong">
+    <ul id = "list">
+      <li id = "qidianlist">qidianlist</li>
+      <br>
+      <li id = "zhongdianlist">zhongdianlist</li>
+      <br>
+      <li id = "sudulist">sudulist</li>
+      <br>
+      <li id = "speed1list">speed1list</li>
+      <br>
+      <li id = "speed2list">speed2list</li>
+      <br>
+        <a href="{% url 'show' %}">查看地点与路径</a>
+        <br>
+         <a href="http://127.0.0.1:8000/admin">管理地点与路径</a>
+
+    </ul>
+
+    </ul>
+  </div>
+  <div id = "bottomline">上海大学通信学院2019-2020秋季学期数据结构课程项目12组</div>
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=2.0&ak=GvV4MCYgaX7MiblZ0NandXeDncoxFY6u">
+</script>
+<script type="text/javascript">
+      var map = new BMap.Map("allmap");
+      map.centerAndZoom(new BMap.Point(121.399929,31.321772), 17);//地图中心点
+      map.enableScrollWheelZoom(true);
+      function get_location() {
+          var address_latitude ={{ address_latitude |safe}};
+          var address_longitude ={{ address_longitude|safe }};
+          var address_data ={{ address_data |safe}};
+          //从后段调用返回的json数据组，safe用于过滤
+
+          ////////////////////////////////////////////////////////////////////////////////////////////
+          //从后端得到dis并整理成文本写入状态栏
+          //
+          //
+          var dis = {{distance | safe}};  //获得距离的数据
+          var qidian = {{start | safe}};  //获得出发地点的名称
+          var zhongdian = {{end | safe}}; //获得目的地的名称
+          var speed1 = 1; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<交通方式1的速度 修改此处
+          var speed2 = 2;//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<交通方式2的速度 修改此处
+
+          var qidianlist = document.getElementById("qidianlist"); //获得列表中起点的对象
+          qidianlist.innerText = "出发地：" + qidian;  //写入文本
+
+          var zhongdianlist = document.getElementById("zhongdianlist"); //获得列表中起点的对象
+          zhongdianlist.innerText = "目的地：" + zhongdian;
+
+          var sudulist = document.getElementById("sudulist"); //获得列表中起点的对象
+          sudulist.innerText = "距离：" + dis+"米";
+
+          var speed1list = document.getElementById("speed1list");
+          speed1list.innerText = "步行时间：" + Math.round(dis / 75)+"分钟";   //《《《《《《《《《《《《《《《《《《《《《《《修改引号内文本
+
+          var speed2list = document.getElementById("speed2list");
+          speed2list.innerText = "骑行时间：" + Math.round(dis /333+1)+"分钟"; //《《《《《《《《《《《《《《《《《《《《《《《《《《《《修改引号内文本
+
+
+          /////////////////////////////////////////////////////////////////////////////////////////////
+          
+
+          var sy = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, {
+          scale: 0.5,//图标缩放大小
+          strokeColor:'#ff1c04',//设置矢量图标的线填充颜色
+          strokeWeight: '1.0',//设置线宽
+          });
+          var icons = new BMap.IconSequence(sy, '10', '20');
+        // 创建polyline对象
+
+          var point = []; //存放标注点经纬信息的数组
+          var marker = []; //存放标注点对象的数组
+          for (var i = 0; i < address_longitude.length; i++) {
+              point[i] = new BMap.Point(address_longitude[i], address_latitude[i]);
+              marker[i] = new BMap.Marker(point[i]); //按照地图点坐标生成标记
+              map.addOverlay(marker[i]);//循环生成新的标注点
+          }
+
+          map.setViewport(point);
+
+          var polyline =new BMap.Polyline(point, {
+              enableEditing: false,//是否启用线编辑，默认为false
+              enableClicking: true,//是否响应点击事件，默认为true
+              icons:[icons],
+              strokeWeight:'5',//折线的宽度，以像素为单位
+              strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
+              strokeColor:"#ff9713" //折线颜色
+          });
+          map.addOverlay(polyline);//根据最短路径中的点坐标依次连接形成一条折线
+
+          for (i = 0; i < marker.length; i++) {
+              (function () {
+                  var index =i;
+                  marker[index].addEventListener('click', function () {
+                      this.openInfoWindow(new BMap.InfoWindow(address_data[index]));
+                  });
+              })();
+          }//点击动作显示备注
+      }
+
+       var c = get_location();
+      
+</script>
+</body>
+</html>

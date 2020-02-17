@@ -1,0 +1,109 @@
+<html xmlns:text-align="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <style type="text/css">
+        
+        body, html {
+            
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "微软雅黑";
+            background-color: #D2FFFF;
+
+        }
+        #show{
+          line-height: 1px;
+          margin-bottom: 1px;
+          width: 100%;
+          background-color: #FFEDDD;
+          text-align: left;
+        }
+
+        #allmap {
+          margin-left: 0px;
+            height: 100%;
+            width: 100%;
+
+        }
+    </style>
+    <title>上海大学漫游</title>
+</head>
+<body>
+  <div id = "show" >
+      <form action="show.html" method="get">
+          <select name="sel">
+              <option value="1">步行路径</option>
+              <option value="0">无法骑行路段</option>
+          </select>
+          <input type="submit" id='search-button' value="查询" >
+      </form>
+      <a href="{% url 'search' %}" >
+          <button>查询最短路径</button>
+      </a>
+      <a href="http://127.0.0.1:8000/admin">
+            <button>管理地点与路径</button>
+      </a>
+
+
+  </div>
+  <div id="allmap"></div>
+<script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=2.0&ak=GvV4MCYgaX7MiblZ0NandXeDncoxFY6u">
+</script>
+<script type="text/javascript">
+      var map = new BMap.Map("allmap");
+      map.centerAndZoom(new BMap.Point(121.399929,31.321772), 17);
+      map.enableScrollWheelZoom(true);
+
+      function get_location() {
+          var address_latitude ={{ address_latitude |safe}};
+          var address_longitude ={{ address_longitude|safe }};
+          var address_data ={{ address_data |safe}};
+          var pairs1 ={{ pairs1 |safe}};
+          var pairs2 ={{ pairs2 |safe}};
+          var pairs3 ={{ pairs3 |safe}};
+          var pairs4 ={{ pairs4 |safe}};
+          //从后段调用返回的json数据组，safe用于过滤
+          ///////////////////////////////////////////////////////////////////////////////////////////
+          var sy = new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, {
+          scale: 0.6,//图标缩放大小
+          strokeColor:'#ff1c04',//设置矢量图标的线填充颜色
+          strokeWeight: '1.5',//设置线宽
+          });
+          var icons = new BMap.IconSequence(sy, '10', '30');
+        // 创建polyline的方向箭头对象
+
+          var point = []; //存放标注点经纬信息的数组
+          var marker = []; //存放标注点对象的数组
+          var label =[];
+          var polyline=[];
+          for (var i = 0; i < address_longitude.length; i++) {
+              point[i] = new BMap.Point(address_longitude[i], address_latitude[i]); //循环生成新的地图点
+              marker[i] = new BMap.Marker(point[i]); //按照地图点坐标生成标记
+              label[i] = new BMap.Label(address_data[i],{offset:new BMap.Size(15,-10)});
+              marker[i].setLabel(label[i]);
+              map.addOverlay(marker[i]);
+          }
+          ////////////////////////////////////////////////////画出所有联通的边
+          var pairs = [];
+          for (var i = 0; i < 500; i++) {
+              pairs[i] = [new BMap.Point(pairs1[i], pairs2[i]), new BMap.Point(pairs3[i], pairs4[i])],
+              polyline[i]= new BMap.Polyline(pairs[i], {
+                  enableEditing: false,//是否启用线编辑，默认为false
+                  enableClicking: true,//是否响应点击事件，默认为true
+                  //icons: [icons],
+                  strokeWeight: '5',//折线的宽度，以像素为单位
+                  strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
+                  strokeColor: "#ffa900" //折线颜色
+              });
+              map.addOverlay(polyline[i]);
+          }
+      }
+    
+       var c = get_location();
+      
+</script>
+</body>
+</html>
