@@ -1,4 +1,4 @@
-#map4shu
+#map4shu#
 ---
 - 运行环境Pycharm，在项目终端下创建虚拟环境；
 ```
@@ -20,5 +20,5 @@ python manage.py runserver
 - 网页部分较简陋，通过链接跳转 查询、后台数据管理、所有地点概览 3个主要功能；
 - django admin用户名gui，密码map4func；百度地图api key需替换成自己申请的。
 ---
-#截图
+#截图#
 ![主界面](https://github.com/159fun/map4shu/blob/master/image/%E4%B8%BB%E7%95%8C%E9%9D%A2%E6%88%AA%E5%9B%BE.png?raw=true)
