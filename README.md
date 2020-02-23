@@ -4,15 +4,15 @@
 ```
 python3 -m venv 11_env（11_env为名称自取）
 ```
-并激活虚拟环境；
+  并激活虚拟环境；
 ```
 source 11_env/bin/activate
 ```
-安装django；
+  安装django；
 ```python
 pip3 install django
 ```
-运行项目；
+  运行项目；
 ```
 python manage.py runserver
 ```
